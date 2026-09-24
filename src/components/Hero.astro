@@ -1,33 +1,121 @@
 ---
 import { Image } from 'astro:assets';
-import portrait from '../assets/frank-ditz-blue-suit.png';
+import portrait from '../assets/frank-ditz-blue-suit-cutout.png';
 ---
 
 <section class="hero page-shell" id="top" aria-labelledby="hero-title">
   <div class="hero__copy">
     <p class="eyebrow">
-      <span></span> Full-stack / Integrations / Automation
+      <span></span> Full-stack software engineer
     </p>
-    <h1 id="hero-title">I turn complicated problems into dependable software.</h1>
+    <h1 id="hero-title">
+      <strong>Frank Ditz</strong>
+      <span>Full-Stack</span>
+      <span>Software Engineer</span>
+    </h1>
     <p class="hero__intro">
-      I’m Frank Ditz, a software engineer who builds full-stack applications, connects systems,
-      automates manual work, and writes maintainable code that teams can rely on.
+      I build practical applications across the stack—from thoughtful interfaces to reliable
+      services, integrations, and automation.
     </p>
     <div class="hero__actions" aria-label="Portfolio actions">
       <a class="button button--primary" href="#selected-work">
-        Explore my work <span>→</span>
+        Selected work <span>→</span>
       </a>
-      <a class="button button--secondary" href="#about">
-        Read about me
+      <a class="button button--secondary" href="#experience">
+        Experience
       </a>
-      <span class="button button--disabled" title="Résumé download coming soon">
-        Résumé <small>soon</small>
-      </span>
+      <a class="button button--secondary" href="#resume">
+        Résumé
+      </a>
     </div>
   </div>
 
   <div class="hero__visual" aria-label="Portrait of Frank Ditz and independent project preview">
     <div class="hero__blue-field" aria-hidden="true"></div>
+    <p class="hero__tagline">
+      Practical engineering for real problems <span></span>
+    </p>
+
+    <article class="project-preview" id="selected-work" aria-labelledby="project-preview-title">
+      <header class="project-preview__header">
+        <div>
+          <p class="project-preview__label">
+            <span></span> Selected work 01 <i></i>
+          </p>
+          <h2 id="project-preview-title">Operations Platform</h2>
+          <p>Independent build · In progress</p>
+        </div>
+        <p class="project-preview__stack">
+          Full-stack web app <span>React · Node.js · PostgreSQL</span>
+        </p>
+      </header>
+
+      <div class="project-preview__window">
+        <aside class="project-preview__sidebar" aria-label="Project preview navigation">
+          <span class="project-preview__monogram">⌘</span>
+          <span class="is-active">
+            ▣ <b>Dashboard</b>
+          </span>
+          <span>
+            ⌘ <b>Tasks</b>
+          </span>
+          <span>
+            ⌘ <b>Integrations</b>
+          </span>
+          <span>
+            ▤ <b>Data</b>
+          </span>
+          <span>
+            ⚙ <b>Settings</b>
+          </span>
+        </aside>
+
+        <div class="project-preview__content">
+          <div class="project-preview__heading">
+            <div>
+              <h3>Project Tasks</h3>
+              <p>Manage work, automate processes, and keep things moving.</p>
+            </div>
+            <span class="project-preview__new-task">＋ New Task</span>
+          </div>
+
+          <div class="project-preview__tabs" aria-hidden="true">
+            <span class="is-active">All</span>
+            <span>In Progress</span>
+            <span>Completed</span>
+            <span>Blocked</span>
+          </div>
+
+          <div class="task-list" aria-hidden="true">
+            <div class="task-row">
+              <i></i>
+              <b>Build integration with external API</b>
+              <em class="tag tag--blue">Integration</em>
+              <span class="state state--blue">⌄ In Progress</span>
+            </div>
+            <div class="task-row">
+              <i class="is-complete">✓</i>
+              <b>Automate weekly report generation</b>
+              <em class="tag tag--purple">Automation</em>
+              <span class="state state--green">⌄ Completed</span>
+            </div>
+            <div class="task-row">
+              <i></i>
+              <b>Design and implement dashboard</b>
+              <em class="tag tag--purple">Frontend</em>
+              <span class="state state--blue">⌄ In Progress</span>
+            </div>
+            <div class="task-row">
+              <i></i>
+              <b>Set up monitoring and alerts</b>
+              <em class="tag">DevOps</em>
+              <span class="state">⌄ Not Started</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <Image
       class="hero__portrait"
       src={portrait}
@@ -36,44 +124,5 @@ import portrait from '../assets/frank-ditz-blue-suit.png';
       fetchpriority="high"
       quality={90}
     />
-
-    <article class="project-preview" id="selected-work" aria-labelledby="project-preview-title">
-      <p class="project-preview__label">Project 01 / Independent build / Planning</p>
-      <div class="project-preview__window">
-        <aside class="project-preview__sidebar" aria-label="Project preview navigation">
-          <span class="project-preview__monogram">FD</span>
-          <span class="is-active">Overview</span>
-          <span>Research</span>
-          <span>Build</span>
-          <span>Test</span>
-        </aside>
-        <div class="project-preview__content">
-          <div class="project-preview__heading">
-            <div>
-              <span>Selected work</span>
-              <h2 id="project-preview-title">Project details coming soon</h2>
-            </div>
-            <span class="status-badge">Planning</span>
-          </div>
-          <div class="workflow" aria-hidden="true">
-            <div>
-              <span>01</span> Understand
-            </div>
-            <b>→</b>
-            <div>
-              <span>02</span> Build
-            </div>
-            <b>→</b>
-            <div>
-              <span>03</span> Refine
-            </div>
-          </div>
-          <div class="project-preview__note">
-            <span></span>
-            <p>This area will become a real project interface, case study, and source link.</p>
-          </div>
-        </div>
-      </div>
-    </article>
   </div>
 </section>
