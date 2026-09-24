@@ -1,45 +1,41 @@
 ---
+import { projectTracks } from '../data/portfolio';
+
 const featuredDetails = [
   {
     icon: '?',
-    title: 'The problem',
-    description: 'Manual, fragmented processes created inconsistent data and wasted time.',
+    title: 'Project standard',
+    description:
+      'Every featured project will start with a specific problem and a clearly defined user.',
   },
   {
     icon: '⚙',
-    title: 'What I built',
+    title: 'What it will show',
     description:
-      'A full-stack web application that centralizes operations, integrates with external systems, and automates recurring workflows.',
+      'A working application, public source code, technical documentation, and a concise product walkthrough.',
   },
   {
     icon: '♢',
-    title: 'Key decisions',
+    title: 'Engineering depth',
     description:
-      'Chose a modular architecture, prioritized clean interfaces, used background processing for automation, and designed for maintainability.',
+      'Architecture, tradeoffs, testing strategy, reliability, and the decisions that shaped the implementation.',
   },
   {
     icon: '▱',
     title: 'Technology',
-    description: 'React, Node.js, PostgreSQL, third-party APIs, Docker (planned).',
+    description: 'Selected for the problem—not to maximize the number of technologies displayed.',
   },
   {
     icon: '○',
     title: 'Current status',
-    description: 'Actively building and expanding features.',
+    description:
+      'This slot remains a transparent placeholder until the repository and demo are ready.',
     status: true,
   },
 ];
-
-const projectCategories = [
-  ['▤', 'Workflow Automation', 'Tooling for file processing and API integrations.'],
-  ['▱', 'Data Sync Utility', 'Synchronize and transform data across platforms.'],
-  ['▥', 'Internal Tools', 'Small tools to simplify recurring tasks.'],
-  ['</>', 'Open Source', 'Contributions and personal experiments.'],
-  ['♙', 'Learning Projects', 'Prototypes and explorations.'],
-];
 ---
 
-<section class="portfolio-overview" id="experience" aria-label="Portfolio overview">
+<section class="portfolio-overview" aria-label="Portfolio overview">
   <div class="portfolio-overview__inner page-shell">
     <article class="about-panel" id="about" aria-labelledby="about-title">
       <p class="section-label">01 / About</p>
@@ -49,8 +45,8 @@ const projectCategories = [
         problems. I work across the full stack—from user interfaces and APIs to integrations and
         automation—and I care about clear code, thoughtful systems, and steady progress.
       </p>
-      <a href="#contact">
-        More about me <span>→</span>
+      <a href="#experience">
+        View experience <span>→</span>
       </a>
     </article>
 
@@ -58,8 +54,10 @@ const projectCategories = [
       <div class="featured-panel__heading">
         <div>
           <p class="section-label">02 / Featured project</p>
-          <h2 id="featured-title">Operations Platform</h2>
-          <p>A full-stack application for workflow automation and system integration.</p>
+          <h2 id="featured-title">Independent project slot</h2>
+          <p>
+            Reserved for a complete, public project with source code and a working demonstration.
+          </p>
         </div>
         <div class="featured-panel__links" aria-label="Project links">
           <span>
@@ -85,7 +83,7 @@ const projectCategories = [
               <h3>{detail.title}</h3>
               {detail.status && (
                 <p class="featured-detail__status">
-                  <i></i> In progress
+                  <i></i> Planned
                 </p>
               )}
               <p>{detail.description}</p>
@@ -100,17 +98,15 @@ const projectCategories = [
 <section class="project-library page-shell" id="projects" aria-labelledby="projects-title">
   <div class="project-library__heading">
     <div>
-      <p class="section-label">03 / Other projects</p>
-      <h2 id="projects-title">More projects</h2>
-      <p>A selection of other work, experiments, and tools.</p>
+      <p class="section-label">03 / Project library</p>
+      <h2 id="projects-title">Built to grow with the work.</h2>
+      <p>Public repositories and demonstrations will be organized into clear engineering tracks.</p>
     </div>
-    <a href="#projects">
-      View all projects <span>→</span>
-    </a>
+    <span class="project-library__status">Projects in development</span>
   </div>
 
   <div class="project-categories">
-    {projectCategories.map(([icon, title, description]) => (
+    {projectTracks.map(([icon, title, description]) => (
       <article class="project-category">
         <span>{icon}</span>
         <div>
@@ -121,6 +117,3 @@ const projectCategories = [
     ))}
   </div>
 </section>
-
-<span id="resume" class="anchor-target" aria-hidden="true"></span>
-<span id="contact" class="anchor-target" aria-hidden="true"></span>
