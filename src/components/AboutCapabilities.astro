@@ -1,0 +1,51 @@
+---
+const capabilities = [
+  {
+    number: '01',
+    title: 'Full-stack development',
+    description: 'Build reliable web applications from thoughtful interfaces to backend services.',
+  },
+  {
+    number: '02',
+    title: 'APIs & integrations',
+    description: 'Connect systems and data through clear, maintainable interfaces.',
+  },
+  {
+    number: '03',
+    title: 'Automation & tools',
+    description: 'Reduce repetitive work with focused software and dependable workflows.',
+  },
+  {
+    number: '04',
+    title: 'Data & visualization',
+    description: 'Turn complex information into useful, understandable experiences.',
+  },
+];
+---
+
+<section class="about page-shell" id="about" aria-labelledby="about-title">
+  <div class="about__intro">
+    <p class="section-label">About me</p>
+    <h2 id="about-title">Practical engineering for real problems.</h2>
+    <p>
+      I enjoy turning complicated requirements into clean, maintainable software. My professional
+      experience taught me to understand the people behind a problem, communicate clearly, and carry
+      solutions from an early idea through dependable delivery.
+    </p>
+  </div>
+
+  <div class="capabilities" aria-labelledby="capabilities-title">
+    <p class="section-label" id="capabilities-title">
+      What I do
+    </p>
+    <div class="capabilities__grid">
+      {capabilities.map((capability) => (
+        <article class="capability">
+          <span class="capability__number">{capability.number}</span>
+          <h3>{capability.title}</h3>
+          <p>{capability.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
