@@ -1,16 +1,17 @@
 ---
+import AboutCapabilities from '../components/AboutCapabilities.astro';
+import Hero from '../components/Hero.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
-</html>
+<BaseLayout
+  title="Frank Ditz — Software Engineer"
+  description="Software engineering portfolio for Frank Ditz, focused on full-stack development, integrations, automation, and practical problem solving."
+>
+  <SiteHeader />
+  <main>
+    <Hero />
+    <AboutCapabilities />
+  </main>
+</BaseLayout>
