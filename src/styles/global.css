@@ -907,17 +907,6 @@ a {
   }
 
   .hero__tagline {
-    top: 0;
-    right: 0.75rem;
-    display: block;
-    width: auto;
-    font-size: 0.54rem;
-    line-height: 1;
-    letter-spacing: 0.12em;
-    white-space: nowrap;
-  }
-
-  .hero__tagline span {
     display: none;
   }
 
@@ -1070,14 +1059,6 @@ a {
 
   .hero__blue-field {
     height: 25rem;
-  }
-
-  .hero__tagline {
-    top: 0.4rem;
-    right: 0.25rem;
-    width: auto;
-    font-size: 0.48rem;
-    letter-spacing: 0.11em;
   }
 
   .hero__portrait {
