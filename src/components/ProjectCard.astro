@@ -6,6 +6,8 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const demoLink = project.links.find((link) => link.kind === 'demo');
+const sourceLink = project.links.find((link) => link.kind === 'source');
 ---
 
 <article class="project-card">
@@ -20,7 +22,21 @@ const { project } = Astro.props;
       <li>{technology}</li>
     ))}
   </ul>
-  <a href={`/projects/${project.slug}/`}>
-    Read case study <span aria-hidden="true">→</span>
-  </a>
+  <div class="project-card__actions" aria-label={`${project.title} links`}>
+    {demoLink ? (
+      <a href={demoLink.href} target="_blank" rel="noreferrer">
+        Live demo
+      </a>
+    ) : (
+      <span aria-disabled="true">Live demo</span>
+    )}
+    {sourceLink ? (
+      <a href={sourceLink.href} target="_blank" rel="noreferrer">
+        GitHub
+      </a>
+    ) : (
+      <span aria-disabled="true">GitHub</span>
+    )}
+    <a href={`/projects/${project.slug}/`}>Details</a>
+  </div>
 </article>

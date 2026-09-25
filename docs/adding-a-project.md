@@ -16,6 +16,10 @@ role before encountering implementation detail.
 7. Set `published: true` only after the repository, demo, links, and case study are ready.
 8. Run `pnpm verify` and review desktop, tablet, and phone layouts before merging.
 
+The homepage always reserves three featured-project slots. Published projects marked
+`featured: true` appear first, followed by other published projects if a slot remains. Each card
+exposes the same three recruiter-facing actions: Live demo, GitHub, and Details.
+
 ## Writing rules
 
 - Lead with the user and problem, not the framework.
