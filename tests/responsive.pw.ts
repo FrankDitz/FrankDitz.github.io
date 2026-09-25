@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
 const viewportWidths = [
-  320, 375, 430, 600, 672, 673, 768, 769, 800, 832, 900, 1024, 1088, 1089, 1120, 1248, 1249, 1440,
-  1920,
+  320, 375, 430, 600, 672, 673, 768, 769, 800, 832, 900, 1024, 1088, 1089, 1120, 1248, 1249, 1312,
+  1313, 1440, 1472, 1473, 1536, 1600, 1920,
 ];
 
 test('portfolio remains readable across responsive layout transitions', async ({ page }) => {
@@ -71,7 +71,7 @@ test('portfolio remains readable across responsive layout transitions', async ({
           projectPreview!.left >= -1 &&
           projectPreview!.right <= window.innerWidth + 1,
         portraitInsideVisual:
-          window.innerWidth > 1088 ||
+          window.innerWidth > 1472 ||
           (Boolean(portrait && heroVisual) &&
             portrait!.left >= heroVisual!.left - 1 &&
             portrait!.right <= heroVisual!.right + 1 &&
@@ -83,6 +83,15 @@ test('portfolio remains readable across responsive layout transitions', async ({
           projectPreview!.right <= heroVisual!.right + 1 &&
           projectPreview!.top >= heroVisual!.top - 1 &&
           projectPreview!.bottom <= heroVisual!.bottom + 1,
+        responsiveVisualsOverlap:
+          window.innerWidth > 1472 ||
+          (Boolean(portrait && projectPreview) &&
+            portrait!.left < projectPreview!.right &&
+            portrait!.right > projectPreview!.left),
+        responsiveVisualsShareBaseline:
+          window.innerWidth > 1472 ||
+          (Boolean(portrait && projectPreview) &&
+            Math.abs(portrait!.bottom - projectPreview!.bottom) <= 1),
       };
     });
 
@@ -110,6 +119,18 @@ test('portfolio remains readable across responsive layout transitions', async ({
       .soft(
         layout.previewInsideVisual,
         `${width}px viewport lets the preview float outside its stage`,
+      )
+      .toBe(true);
+    expect
+      .soft(
+        layout.responsiveVisualsOverlap,
+        `${width}px viewport visually detaches the portrait from the preview`,
+      )
+      .toBe(true);
+    expect
+      .soft(
+        layout.responsiveVisualsShareBaseline,
+        `${width}px viewport gives the hero visuals different baselines`,
       )
       .toBe(true);
   }
