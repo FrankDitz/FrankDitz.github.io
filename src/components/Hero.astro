@@ -42,93 +42,95 @@ const hasPublishedProjects = projects.some((project) => project.published);
       From unclear problem to working system <span></span>
     </p>
 
-    <article class="project-preview" id="selected-work" aria-labelledby="project-preview-title">
-      <header class="project-preview__header">
-        <div>
-          <p class="project-preview__label">
-            <span></span> Project system <i></i>
+    <div class="hero__composition">
+      <article class="project-preview" id="selected-work" aria-labelledby="project-preview-title">
+        <header class="project-preview__header">
+          <div>
+            <p class="project-preview__label">
+              <span></span> Project system <i></i>
+            </p>
+            <h2 id="project-preview-title">Evidence-first case studies</h2>
+            <p>Reusable format · Ready for completed builds</p>
+          </div>
+          <p class="project-preview__stack">
+            Recruiter view <span>Source · Demo · Decisions</span>
           </p>
-          <h2 id="project-preview-title">Evidence-first case studies</h2>
-          <p>Reusable format · Ready for completed builds</p>
-        </div>
-        <p class="project-preview__stack">
-          Recruiter view <span>Source · Demo · Decisions</span>
-        </p>
-      </header>
+        </header>
 
-      <div class="project-preview__window">
-        <aside class="project-preview__sidebar" aria-label="Project preview navigation">
-          <span class="project-preview__monogram">FD</span>
-          <span class="is-active">
-            ▣ <b>Overview</b>
-          </span>
-          <span>
-            ↗ <b>Demo</b>
-          </span>
-          <span>
-            ⌘ <b>Architecture</b>
-          </span>
-          <span>
-            ◇ <b>Decisions</b>
-          </span>
-          <span>
-            ✓ <b>Testing</b>
-          </span>
-        </aside>
+        <div class="project-preview__window">
+          <aside class="project-preview__sidebar" aria-label="Project preview navigation">
+            <span class="project-preview__monogram">FD</span>
+            <span class="is-active">
+              ▣ <b>Overview</b>
+            </span>
+            <span>
+              ↗ <b>Demo</b>
+            </span>
+            <span>
+              ⌘ <b>Architecture</b>
+            </span>
+            <span>
+              ◇ <b>Decisions</b>
+            </span>
+            <span>
+              ✓ <b>Testing</b>
+            </span>
+          </aside>
 
-        <div class="project-preview__content">
-          <div class="project-preview__heading">
-            <div>
-              <h3>Case Study Checklist</h3>
-              <p>What a technical reviewer needs, in the order they need it.</p>
+          <div class="project-preview__content">
+            <div class="project-preview__heading">
+              <div>
+                <h3>Case Study Checklist</h3>
+                <p>What a technical reviewer needs, in the order they need it.</p>
+              </div>
+              <span class="project-preview__new-task">Ready to reuse</span>
             </div>
-            <span class="project-preview__new-task">Ready to reuse</span>
-          </div>
 
-          <div class="project-preview__tabs" aria-hidden="true">
-            <span class="is-active">Overview</span>
-            <span>Architecture</span>
-            <span>Decisions</span>
-            <span>Quality</span>
-          </div>
+            <div class="project-preview__tabs" aria-hidden="true">
+              <span class="is-active">Overview</span>
+              <span>Architecture</span>
+              <span>Decisions</span>
+              <span>Quality</span>
+            </div>
 
-          <div class="task-list" aria-hidden="true">
-            <div class="task-row">
-              <i></i>
-              <b>Define the problem and primary user</b>
-              <em class="tag tag--blue">Context</em>
-              <span class="state state--green">✓ Required</span>
-            </div>
-            <div class="task-row">
-              <i class="is-complete">✓</i>
-              <b>Link the live demo and source code</b>
-              <em class="tag tag--purple">Evidence</em>
-              <span class="state state--green">✓ Required</span>
-            </div>
-            <div class="task-row">
-              <i></i>
-              <b>Explain architecture and tradeoffs</b>
-              <em class="tag tag--purple">Depth</em>
-              <span class="state state--green">✓ Required</span>
-            </div>
-            <div class="task-row">
-              <i></i>
-              <b>Document tests and reliability</b>
-              <em class="tag">Quality</em>
-              <span class="state state--green">✓ Required</span>
+            <div class="task-list" aria-hidden="true">
+              <div class="task-row">
+                <i></i>
+                <b>Define the problem and primary user</b>
+                <em class="tag tag--blue">Context</em>
+                <span class="state state--green">✓ Required</span>
+              </div>
+              <div class="task-row">
+                <i class="is-complete">✓</i>
+                <b>Link the live demo and source code</b>
+                <em class="tag tag--purple">Evidence</em>
+                <span class="state state--green">✓ Required</span>
+              </div>
+              <div class="task-row">
+                <i></i>
+                <b>Explain architecture and tradeoffs</b>
+                <em class="tag tag--purple">Depth</em>
+                <span class="state state--green">✓ Required</span>
+              </div>
+              <div class="task-row">
+                <i></i>
+                <b>Document tests and reliability</b>
+                <em class="tag">Quality</em>
+                <span class="state state--green">✓ Required</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <Image
-      class="hero__portrait"
-      src={portrait}
-      alt="Frank Ditz wearing a blue suit"
-      loading="eager"
-      fetchpriority="high"
-      quality={90}
-    />
+      <Image
+        class="hero__portrait"
+        src={portrait}
+        alt="Frank Ditz wearing a blue suit"
+        loading="eager"
+        fetchpriority="high"
+        quality={90}
+      />
+    </div>
   </div>
 </section>
