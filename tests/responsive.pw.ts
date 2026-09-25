@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
 
-const viewportWidths = [320, 375, 430, 600, 672, 673, 768, 769, 1024, 1120, 1248, 1249, 1440, 1920];
+const viewportWidths = [
+  320, 375, 430, 600, 672, 673, 768, 769, 800, 832, 900, 1024, 1088, 1089, 1120, 1248, 1249, 1440,
+  1920,
+];
 
 test('portfolio remains readable across responsive layout transitions', async ({ page }) => {
   for (const width of viewportWidths) {
@@ -49,6 +52,7 @@ test('portfolio remains readable across responsive layout transitions', async ({
 
       const portrait = document.querySelector('.hero__portrait')?.getBoundingClientRect();
       const hero = document.querySelector('.hero')?.getBoundingClientRect();
+      const heroVisual = document.querySelector('.hero__visual')?.getBoundingClientRect();
       const projectPreview = document.querySelector('.project-preview')?.getBoundingClientRect();
 
       return {
@@ -66,6 +70,19 @@ test('portfolio remains readable across responsive layout transitions', async ({
           Boolean(projectPreview) &&
           projectPreview!.left >= -1 &&
           projectPreview!.right <= window.innerWidth + 1,
+        portraitInsideVisual:
+          window.innerWidth > 1088 ||
+          (Boolean(portrait && heroVisual) &&
+            portrait!.left >= heroVisual!.left - 1 &&
+            portrait!.right <= heroVisual!.right + 1 &&
+            portrait!.top >= heroVisual!.top - 1 &&
+            portrait!.bottom <= heroVisual!.bottom + 1),
+        previewInsideVisual:
+          Boolean(projectPreview && heroVisual) &&
+          projectPreview!.left >= heroVisual!.left - 1 &&
+          projectPreview!.right <= heroVisual!.right + 1 &&
+          projectPreview!.top >= heroVisual!.top - 1 &&
+          projectPreview!.bottom <= heroVisual!.bottom + 1,
       };
     });
 
@@ -82,6 +99,18 @@ test('portfolio remains readable across responsive layout transitions', async ({
       .toBe(true);
     expect
       .soft(layout.previewInsideViewport, `${width}px viewport clips the project preview`)
+      .toBe(true);
+    expect
+      .soft(
+        layout.portraitInsideVisual,
+        `${width}px viewport lets the portrait float outside its stage`,
+      )
+      .toBe(true);
+    expect
+      .soft(
+        layout.previewInsideVisual,
+        `${width}px viewport lets the preview float outside its stage`,
+      )
       .toBe(true);
   }
 });
