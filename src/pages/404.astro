@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found — Frank Ditz"
+  description="The requested page could not be found. Return to Frank Ditz’s software engineering portfolio."
+>
+  <main class="not-found page-shell">
+    <a class="not-found__identity" href="/" aria-label="Frank Ditz portfolio home">
+      <span aria-hidden="true">FD</span>
+      <span>
+        Frank Ditz <small>Software Engineer</small>
+      </span>
+    </a>
+    <div class="not-found__content">
+      <p class="section-label">404 / Page not found</p>
+      <h1>This route doesn’t lead anywhere.</h1>
+      <p>
+        The page may have moved, or the address may be incomplete. The portfolio, professional
+        experience, resumes, and contact details are all available from the homepage.
+      </p>
+      <a class="button button--primary" href="/">
+        Return to portfolio <span>→</span>
+      </a>
+    </div>
+  </main>
+</BaseLayout>
