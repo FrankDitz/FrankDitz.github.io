@@ -1,0 +1,37 @@
+---
+import { capabilities } from '../data/portfolio';
+---
+
+<section
+  class="capabilities-section content-section"
+  id="capabilities"
+  aria-labelledby="capabilities-title"
+>
+  <div class="page-shell">
+    <header class="content-section__heading content-section__heading--light">
+      <p class="section-label">05 / Technical profile</p>
+      <div>
+        <h2 id="capabilities-title">Skills & capabilities</h2>
+        <p>
+          Technologies matter most when they support good decisions. These are the areas where I can
+          contribute quickly while continuing to grow across the stack.
+        </p>
+      </div>
+    </header>
+
+    <div class="capability-grid">
+      {capabilities.map((capability, index) => (
+        <article class="capability-card">
+          <span>0{index + 1}</span>
+          <h3>{capability.title}</h3>
+          <p>{capability.description}</p>
+          <ul>
+            {capability.technologies.map((technology) => (
+              <li>{technology}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

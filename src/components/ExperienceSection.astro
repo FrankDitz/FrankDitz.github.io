@@ -1,0 +1,99 @@
+---
+import { experience, professionalWork } from '../data/portfolio';
+
+const experienceProof = [
+  ['Promoted', 'Intern to associate'],
+  ['3', 'Enterprise customers'],
+  ['100+', 'API endpoints in a typed SDK'],
+  ['Backend · Cloud · AI', 'Engineering range'],
+];
+---
+
+<section
+  class="experience-section page-shell content-section"
+  id="experience"
+  aria-labelledby="experience-title"
+>
+  <header class="content-section__heading">
+    <p class="section-label">04 / Professional background</p>
+    <div>
+      <h2 id="experience-title">Experience</h2>
+      <p>
+        My background combines software engineering, enterprise systems, and direct customer
+        ownership—from understanding the problem through production troubleshooting.
+      </p>
+    </div>
+  </header>
+
+  <dl class="experience-proof" aria-label="Experience highlights">
+    {experienceProof.map(([value, label]) => (
+      <div>
+        <dt>{value}</dt>
+        <dd>{label}</dd>
+      </div>
+    ))}
+  </dl>
+
+  <div class="experience-history" aria-labelledby="career-history-title">
+    <div class="experience-history__heading">
+      <p class="section-label">Career history</p>
+      <h3 id="career-history-title">Where I’ve worked</h3>
+    </div>
+    <div class="experience-list">
+      {experience.map((item) => (
+        <article class="experience-item">
+          <div class="experience-item__identity">
+            <h3>{item.company}</h3>
+            <p>{item.location}</p>
+          </div>
+          <div class="experience-item__body">
+            <div class="experience-item__roles">
+              {item.roles.map((role) => (
+                <div>
+                  <h4>{role.title}</h4>
+                  <time>{role.dates}</time>
+                </div>
+              ))}
+            </div>
+            <p>{item.summary}</p>
+            {item.highlights.length > 0 && (
+              <ul>
+                {item.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="professional-work" aria-labelledby="professional-work-title">
+    <div class="professional-work__intro">
+      <p class="section-label">Engineering evidence</p>
+      <h3 id="professional-work-title">Selected professional work</h3>
+      <p>
+        Representative systems I delivered at ALTR. The source code belongs to my former employer,
+        so these are concise case summaries—not public portfolio projects.
+      </p>
+    </div>
+    <div class="professional-work__list">
+      {professionalWork.map((item) => (
+        <article class="work-example">
+          <span>{item.number}</span>
+          <div>
+            <p>{item.context}</p>
+            <h4>{item.title}</h4>
+            <p>{item.description}</p>
+            <ul aria-label={`${item.title} technologies`}>
+              {item.skills.map((skill) => (
+                <li>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+---
+import { resumes } from '../data/portfolio';
+---
+
+<section
+  class="resume-section page-shell content-section"
+  id="resume"
+  aria-labelledby="resume-title"
+>
+  <header class="content-section__heading">
+    <p class="section-label">06 / Application materials</p>
+    <div>
+      <h2 id="resume-title">Resumes</h2>
+      <p>
+        Start with the general software engineering resume. The other versions highlight experience
+        relevant to field engineering and applied-AI roles without changing the underlying work.
+      </p>
+    </div>
+  </header>
+
+  <div class="resume-grid">
+    {resumes.map((resume) => (
+      <article class:list={['resume-card', { 'resume-card--primary': resume.primary }]}>
+        <div>
+          <p>{resume.primary ? 'Recommended' : 'Specialized'}</p>
+          <h3>{resume.title}</h3>
+          <p>{resume.description}</p>
+        </div>
+        <a href={resume.href} target="_blank" rel="noreferrer">
+          View PDF <span aria-hidden="true">↗</span>
+        </a>
+      </article>
+    ))}
+  </div>
+</section>
+
+<footer class="contact-section" id="contact" aria-labelledby="contact-title">
+  <div class="contact-section__inner page-shell">
+    <p class="section-label">07 / Get in touch</p>
+    <div class="contact-section__message">
+      <h2 id="contact-title">Contact</h2>
+      <p>
+        I’m open to software engineering opportunities across backend, full-stack, platform,
+        integrations, developer tools, and applied AI.
+      </p>
+    </div>
+    <div class="contact-section__links">
+      <a href="mailto:ditzfrank@gmail.com">
+        Email <span>↗</span>
+      </a>
+      <a href="https://www.linkedin.com/in/frank-ditz" target="_blank" rel="noreferrer">
+        LinkedIn <span>↗</span>
+      </a>
+      <a href="https://github.com/FrankDitz" target="_blank" rel="noreferrer">
+        GitHub <span>↗</span>
+      </a>
+    </div>
+    <p class="contact-section__footer">Frank Ditz · Software Engineer · Melbourne, Florida</p>
+  </div>
+</footer>
