@@ -16,9 +16,9 @@
     "lint": "eslint .",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "test:a11y": "start-server-and-test 'python3 -m http.server 4173 --directory dist --bind 127.0.0.1' http://127.0.0.1:4173 'playwright test'",
+    "test:browser": "start-server-and-test 'python3 -m http.server 4173 --directory dist --bind 127.0.0.1' http://127.0.0.1:4173 'playwright test'",
     "test:links": "start-server-and-test 'python3 -m http.server 4173 --directory dist --bind 127.0.0.1' http://127.0.0.1:4173 \"linkinator http://127.0.0.1:4173 --recurse --check-fragments --skip '^https://' --skip '^mailto:'\"",
-    "verify": "pnpm format:check && pnpm lint && pnpm check && pnpm build && pnpm test:links && pnpm test:a11y"
+    "verify": "pnpm format:check && pnpm lint && pnpm check && pnpm build && pnpm test:links && pnpm test:browser"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

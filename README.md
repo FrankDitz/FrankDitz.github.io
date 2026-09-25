@@ -12,7 +12,7 @@ demo, and case study are complete.
 - [Astro](https://astro.build/) for static rendering and content-focused pages
 - TypeScript with Astro's strict configuration
 - ESLint and Prettier for consistent, reviewable code
-- Playwright and Axe for automated accessibility checks
+- Playwright and Axe for automated accessibility and responsive-layout checks
 - Linkinator for internal link and asset validation
 
 ## Local development
@@ -42,7 +42,7 @@ pnpm lint
 pnpm check
 pnpm build
 pnpm test:links
-pnpm test:a11y
+pnpm test:browser
 ```
 
 ## Contribution workflow

@@ -1692,7 +1692,7 @@ a {
   }
 }
 
-@media (max-width: 70rem) {
+@media (max-width: 78rem) {
   .hero {
     display: flex;
     flex-direction: column;
@@ -1752,20 +1752,6 @@ a {
     max-width: 20rem;
     height: auto;
   }
-
-  .portfolio-overview__inner {
-    grid-template-columns: 1fr;
-  }
-
-  .about-panel {
-    border-right: 0;
-    border-bottom: 1px solid var(--color-line);
-    padding: 0 0 2rem;
-  }
-
-  .featured-panel {
-    padding: 2rem 0 0;
-  }
 }
 
 @media (min-width: 42.01rem) and (max-width: 52rem) {
@@ -1798,30 +1784,6 @@ a {
 
   .site-header__status {
     grid-area: status;
-  }
-
-  .hero__visual {
-    grid-template-areas:
-      'portrait'
-      'preview';
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
-    padding: 1.5rem 0 2rem;
-  }
-
-  .hero__blue-field {
-    bottom: auto;
-    height: clamp(21rem, 92vw, 25rem);
-  }
-
-  .project-preview {
-    grid-area: preview;
-  }
-
-  .hero__portrait {
-    grid-area: portrait;
-    justify-self: center;
-    width: clamp(15rem, 72vw, 20rem);
   }
 }
 
@@ -1886,13 +1848,31 @@ a {
   }
 
   .hero__visual {
+    grid-template-areas:
+      'portrait'
+      'preview';
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
     min-height: 0;
+    padding: 1.5rem 0 2rem;
+  }
+
+  .hero__blue-field {
+    bottom: auto;
+    height: clamp(21rem, calc(90vw + 3rem), 28rem);
   }
 
   .project-preview {
+    grid-area: preview;
     top: auto;
     bottom: auto;
     width: 100%;
+  }
+
+  .hero__portrait {
+    grid-area: portrait;
+    justify-self: center;
+    width: clamp(15rem, 72vw, 20rem);
   }
 
   .project-preview__header {
@@ -1931,6 +1911,20 @@ a {
 }
 
 @media (max-width: 70rem) {
+  .portfolio-overview__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-line);
+    padding: 0 0 2rem;
+  }
+
+  .featured-panel {
+    padding: 2rem 0 0;
+  }
+
   .content-section__heading,
   .experience-history {
     grid-template-columns: minmax(10rem, 0.55fr) minmax(0, 1.45fr);
