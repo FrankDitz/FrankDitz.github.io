@@ -11,6 +11,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "generate:social-image": "node scripts/generate-social-image.mjs",
     "astro": "astro",
     "check": "astro check",
     "lint": "eslint .",

@@ -45,6 +45,12 @@ pnpm test:links
 pnpm test:browser
 ```
 
+The LinkedIn and social-sharing preview image is generated from the site portrait and brand layout:
+
+```sh
+pnpm generate:social-image
+```
+
 ## Contribution workflow
 
 Work is developed on short-lived branches and merged through focused pull requests. Branch naming, commit conventions, and review expectations are documented in [CONTRIBUTING.md](CONTRIBUTING.md).
