@@ -1,0 +1,103 @@
+---
+import ProjectCard from '../../components/ProjectCard.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { projects } from '../../data/projects';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const publishedProjects = projects.filter((project) => project.published);
+const projectTracks = [
+  {
+    title: 'Backend & APIs',
+    description: 'Services, integrations, authentication, data modeling, and reliability.',
+  },
+  {
+    title: 'Full-stack applications',
+    description: 'Complete user workflows supported by maintainable application architecture.',
+  },
+  {
+    title: 'Cloud & data systems',
+    description: 'Recoverable workflows, infrastructure, data movement, and observability.',
+  },
+  {
+    title: 'Applied AI',
+    description: 'Useful AI products with controlled tools, evaluation, and secure data access.',
+  },
+];
+---
+
+<BaseLayout
+  title="Projects — Frank Ditz"
+  description="Independent software engineering projects by Frank Ditz, including source code, demos, architecture, testing, and technical decisions."
+>
+  <SiteHeader />
+  <main id="top" class="projects-index">
+    <header class="projects-index__hero page-shell">
+      <p class="section-label">Independent engineering work</p>
+      <h1>Project library</h1>
+      <p>
+        A focused collection of complete builds. Every published project will include source code, a
+        working demonstration, architecture, important tradeoffs, testing, and a concise
+        retrospective.
+      </p>
+    </header>
+
+    <section
+      class="projects-index__collection page-shell"
+      aria-labelledby="project-collection-title"
+    >
+      <div class="projects-index__heading">
+        <div>
+          <p class="section-label">Public case studies</p>
+          <h2 id="project-collection-title">Completed projects</h2>
+        </div>
+        <a href="/#professional-work">
+          Review professional work <span>→</span>
+        </a>
+      </div>
+
+      {publishedProjects.length > 0 ? (
+        <div class="project-card-grid">
+          {publishedProjects.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      ) : (
+        <div class="projects-index__empty">
+          <span>Currently building</span>
+          <h3>The first public case studies are in development.</h3>
+          <p>
+            I’m keeping unfinished projects off the public portfolio until their repositories,
+            demos, and supporting evidence are ready to review. This page is already structured to
+            grow into the complete project library as each build is finished.
+          </p>
+        </div>
+      )}
+    </section>
+
+    <section class="projects-index__tracks page-shell" aria-labelledby="project-tracks-title">
+      <div class="projects-index__heading">
+        <div>
+          <p class="section-label">Planned organization</p>
+          <h2 id="project-tracks-title">Engineering tracks</h2>
+        </div>
+        <p>Projects will be grouped by the capability they demonstrate—not by arbitrary volume.</p>
+      </div>
+      <div class="project-track-grid">
+        {projectTracks.map((track, index) => (
+          <article>
+            <span>0{index + 1}</span>
+            <h3>{track.title}</h3>
+            <p>{track.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <footer class="projects-index__footer page-shell">
+      <p>Frank Ditz · Software Engineer</p>
+      <a href="/">
+        Return to portfolio <span>→</span>
+      </a>
+    </footer>
+  </main>
+</BaseLayout>
