@@ -4,15 +4,16 @@ Personal portfolio for presenting my software engineering experience, technical 
 
 ## Project status
 
-The site is under active development. Project entries distinguish clearly between planned, in-progress, and live work; links to source code or demonstrations are only published when they exist.
+The site is under active development. Independent projects remain unpublished until their source,
+demo, and case study are complete.
 
 ## Technology
 
 - [Astro](https://astro.build/) for static rendering and content-focused pages
 - TypeScript with Astro's strict configuration
-- React islands for interactions that require client-side state
-- Vitest for automated tests
 - ESLint and Prettier for consistent, reviewable code
+- Playwright and Axe for automated accessibility checks
+- Linkinator for internal link and asset validation
 
 ## Local development
 
@@ -39,8 +40,9 @@ Individual checks are also available:
 pnpm format:check
 pnpm lint
 pnpm check
-pnpm test
 pnpm build
+pnpm test:links
+pnpm test:a11y
 ```
 
 ## Contribution workflow
