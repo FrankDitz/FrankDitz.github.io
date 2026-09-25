@@ -1,130 +1,76 @@
 ---
-import { projectTracks } from '../data/portfolio';
+import ProjectCard from './ProjectCard.astro';
+import { projects } from '../data/projects';
 
-const featuredDetails = [
-  {
-    icon: '?',
-    title: 'Project standard',
-    description:
-      'Every featured project will start with a specific problem and a clearly defined user.',
-  },
-  {
-    icon: '⚙',
-    title: 'What it will show',
-    description:
-      'A working application, public source code, technical documentation, and a concise product walkthrough.',
-  },
-  {
-    icon: '♢',
-    title: 'Engineering depth',
-    description:
-      'Architecture, tradeoffs, testing strategy, reliability, and the decisions that shaped the implementation.',
-  },
-  {
-    icon: '▱',
-    title: 'Technology',
-    description: 'Selected for the problem—not to maximize the number of technologies displayed.',
-  },
-  {
-    icon: '○',
-    title: 'Current status',
-    description:
-      'This slot remains a transparent placeholder until the repository and demo are ready.',
-    status: true,
-  },
-];
+const publishedProjects = projects.filter((project) => project.published);
 ---
 
-<section class="portfolio-overview" aria-label="Portfolio overview">
+<section class="portfolio-overview" aria-label="About and independent projects">
   <div class="portfolio-overview__inner page-shell">
     <article class="about-panel" id="about" aria-labelledby="about-title">
-      <p class="section-label">01 / Introduction</p>
-      <h2 id="about-title">About me</h2>
+      <p class="section-label">01 / About</p>
+      <h2 id="about-title">I build software around real operational problems.</h2>
       <div class="about-panel__bio">
         <p>
-          I’m a software engineer based in Melbourne, Florida, focused on building reliable
-          applications, APIs, and integrations that solve practical problems.
+          I’m a software engineer in Melbourne, Florida. At ALTR, I progressed from field
+          engineering intern to associate while delivering backend integrations, cloud workflows,
+          and applied-AI tools for three enterprise customers.
         </p>
         <p>
-          My path into engineering began with data analytics and grew into enterprise software. At
-          ALTR, I was promoted from field engineering intern to associate while working across
-          Python, Node.js, AWS, PostgreSQL, Snowflake, data security, and applied AI.
+          My work has included a typed Python SDK covering more than 100 API endpoints, a
+          recoverable AWS-to-Snowflake data pipeline, and a governed AI assistant connected to
+          enterprise data systems.
         </p>
         <p>
-          I do my best work where technical depth meets real users: understanding an ambiguous
-          problem, designing a maintainable solution, and staying with it through testing, delivery,
-          and troubleshooting.
+          Before engineering, I managed day-to-day operations for a medical practice. That
+          experience still shapes how I work: clarify the actual constraint, communicate directly,
+          and build systems people can depend on.
         </p>
       </div>
       <a href="#experience">
-        View experience <span>→</span>
+        See the supporting experience <span>→</span>
       </a>
     </article>
 
-    <article class="featured-panel" aria-labelledby="featured-title">
+    <article class="featured-panel" id="projects" aria-labelledby="projects-title">
       <div class="featured-panel__heading">
         <div>
-          <p class="section-label">02 / Independent work</p>
-          <h2 id="featured-title">Featured projects</h2>
+          <p class="section-label">02 / Independent projects</p>
+          <h2 id="projects-title">Public work, shown with evidence</h2>
           <p>
-            Reserved for a complete, public project with source code and a working demonstration.
+            Each completed project will include source code, a working demo, architecture,
+            engineering decisions, testing, and an honest retrospective.
           </p>
         </div>
-        <div class="featured-panel__links" aria-label="Project links">
-          <span>
-            <b>◉</b>
-            <i>
-              GitHub<small>Coming soon</small>
-            </i>
-          </span>
-          <span>
-            <b>↗</b>
-            <i>
-              Live demo<small>Coming soon</small>
-            </i>
-          </span>
-        </div>
       </div>
 
-      <div class="featured-details">
-        {featuredDetails.map((detail) => (
-          <article class="featured-detail">
-            <span class="featured-detail__icon">{detail.icon}</span>
-            <div>
-              <h3>{detail.title}</h3>
-              {detail.status && (
-                <p class="featured-detail__status">
-                  <i></i> Planned
-                </p>
-              )}
-              <p>{detail.description}</p>
-            </div>
-          </article>
-        ))}
-      </div>
+      {publishedProjects.length > 0 ? (
+        <div class="project-card-grid">
+          {publishedProjects.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      ) : (
+        <div class="project-empty-state">
+          <div>
+            <span>In development</span>
+            <h3>The first independent case studies are being built now.</h3>
+          </div>
+          <p>
+            I’m keeping unfinished work off the portfolio rather than presenting placeholders as
+            proof. Until those repositories and demos are ready, my professional engineering work
+            below is the best evidence of what I’ve delivered.
+          </p>
+          <a href="#professional-work">
+            Review professional work <span>↓</span>
+          </a>
+          {import.meta.env.DEV && (
+            <a class="project-empty-state__preview" href="/projects/project-template/">
+              Preview project-page template <span>→</span>
+            </a>
+          )}
+        </div>
+      )}
     </article>
-  </div>
-</section>
-
-<section class="project-library page-shell" id="projects" aria-labelledby="projects-title">
-  <div class="project-library__heading">
-    <div>
-      <p class="section-label">03 / Independent work</p>
-      <h2 id="projects-title">Projects</h2>
-      <p>Public repositories and demonstrations will be organized into clear engineering tracks.</p>
-    </div>
-    <span class="project-library__status">Projects in development</span>
-  </div>
-
-  <div class="project-categories">
-    {projectTracks.map(([icon, title, description]) => (
-      <article class="project-category">
-        <span>{icon}</span>
-        <div>
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </div>
-      </article>
-    ))}
   </div>
 </section>

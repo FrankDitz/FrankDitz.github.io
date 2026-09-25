@@ -1,25 +1,31 @@
 ---
 import { Image } from 'astro:assets';
 import portrait from '../assets/frank-ditz-blue-suit-cutout.png';
+import { projects } from '../data/projects';
+
+const hasPublishedProjects = projects.some((project) => project.published);
 ---
 
 <section class="hero page-shell" id="top" aria-labelledby="hero-title">
   <div class="hero__copy">
     <p class="eyebrow">
-      <span></span> Full-stack software engineer
+      <span></span> Backend · Integrations · Full-stack
     </p>
     <h1 id="hero-title">
       <strong>Frank Ditz</strong>
-      <span>Full-Stack</span>
-      <span>Software Engineer</span>
+      <span>Software</span>
+      <span>Engineer</span>
     </h1>
     <p class="hero__intro">
-      I build practical applications across the stack—from thoughtful interfaces to reliable
-      services, integrations, and automation.
+      I turn unclear operational problems into tested software—building APIs, cloud workflows, and
+      user-facing tools from discovery through production troubleshooting.
     </p>
     <div class="hero__actions" aria-label="Portfolio actions">
-      <a class="button button--primary" href="#selected-work">
-        Selected work <span>→</span>
+      <a
+        class="button button--primary"
+        href={hasPublishedProjects ? '#projects' : '#professional-work'}
+      >
+        {hasPublishedProjects ? 'View projects' : 'Professional work'} <span>→</span>
       </a>
       <a class="button button--secondary" href="#experience">
         Experience
@@ -33,83 +39,83 @@ import portrait from '../assets/frank-ditz-blue-suit-cutout.png';
   <div class="hero__visual" aria-label="Portrait of Frank Ditz and independent project preview">
     <div class="hero__blue-field" aria-hidden="true"></div>
     <p class="hero__tagline">
-      Practical engineering for real problems <span></span>
+      From unclear problem to working system <span></span>
     </p>
 
     <article class="project-preview" id="selected-work" aria-labelledby="project-preview-title">
       <header class="project-preview__header">
         <div>
           <p class="project-preview__label">
-            <span></span> Selected work 01 <i></i>
+            <span></span> Project system <i></i>
           </p>
-          <h2 id="project-preview-title">Operations Platform</h2>
-          <p>Independent portfolio project · Planned</p>
+          <h2 id="project-preview-title">Evidence-first case studies</h2>
+          <p>Reusable format · Ready for completed builds</p>
         </div>
         <p class="project-preview__stack">
-          Full-stack web app <span>React · Node.js · PostgreSQL</span>
+          Recruiter view <span>Source · Demo · Decisions</span>
         </p>
       </header>
 
       <div class="project-preview__window">
         <aside class="project-preview__sidebar" aria-label="Project preview navigation">
-          <span class="project-preview__monogram">⌘</span>
+          <span class="project-preview__monogram">FD</span>
           <span class="is-active">
-            ▣ <b>Dashboard</b>
+            ▣ <b>Overview</b>
           </span>
           <span>
-            ⌘ <b>Tasks</b>
+            ↗ <b>Demo</b>
           </span>
           <span>
-            ⌘ <b>Integrations</b>
+            ⌘ <b>Architecture</b>
           </span>
           <span>
-            ▤ <b>Data</b>
+            ◇ <b>Decisions</b>
           </span>
           <span>
-            ⚙ <b>Settings</b>
+            ✓ <b>Testing</b>
           </span>
         </aside>
 
         <div class="project-preview__content">
           <div class="project-preview__heading">
             <div>
-              <h3>Project Tasks</h3>
-              <p>Manage work, automate processes, and keep things moving.</p>
+              <h3>Case Study Checklist</h3>
+              <p>What a technical reviewer needs, in the order they need it.</p>
             </div>
-            <span class="project-preview__new-task">＋ New Task</span>
+            <span class="project-preview__new-task">Ready to reuse</span>
           </div>
 
           <div class="project-preview__tabs" aria-hidden="true">
-            <span class="is-active">All</span>
-            <span>In Progress</span>
-            <span>Completed</span>
-            <span>Blocked</span>
+            <span class="is-active">Overview</span>
+            <span>Architecture</span>
+            <span>Decisions</span>
+            <span>Quality</span>
           </div>
 
           <div class="task-list" aria-hidden="true">
             <div class="task-row">
               <i></i>
-              <b>Build integration with external API</b>
-              <em class="tag tag--blue">Integration</em>
-              <span class="state state--blue">⌄ In Progress</span>
+              <b>Define the problem and primary user</b>
+              <em class="tag tag--blue">Context</em>
+              <span class="state state--green">✓ Required</span>
             </div>
             <div class="task-row">
               <i class="is-complete">✓</i>
-              <b>Automate weekly report generation</b>
-              <em class="tag tag--purple">Automation</em>
-              <span class="state state--green">⌄ Completed</span>
+              <b>Link the live demo and source code</b>
+              <em class="tag tag--purple">Evidence</em>
+              <span class="state state--green">✓ Required</span>
             </div>
             <div class="task-row">
               <i></i>
-              <b>Design and implement dashboard</b>
-              <em class="tag tag--purple">Frontend</em>
-              <span class="state state--blue">⌄ In Progress</span>
+              <b>Explain architecture and tradeoffs</b>
+              <em class="tag tag--purple">Depth</em>
+              <span class="state state--green">✓ Required</span>
             </div>
             <div class="task-row">
               <i></i>
-              <b>Set up monitoring and alerts</b>
-              <em class="tag">DevOps</em>
-              <span class="state">⌄ Not Started</span>
+              <b>Document tests and reliability</b>
+              <em class="tag">Quality</em>
+              <span class="state state--green">✓ Required</span>
             </div>
           </div>
         </div>
