@@ -1,5 +1,5 @@
 ---
-import { capabilities } from '../data/portfolio';
+import { capabilities, engineeringPractices } from '../data/portfolio';
 ---
 
 <section
@@ -11,27 +11,52 @@ import { capabilities } from '../data/portfolio';
     <header class="content-section__heading content-section__heading--light">
       <p class="section-label">04 / Technical profile</p>
       <div>
-        <h2 id="capabilities-title">Skills & capabilities</h2>
+        <h2 id="capabilities-title">Where I can contribute</h2>
         <p>
-          My strongest experience is in backend services, system integrations, cloud data workflows,
-          and the delivery practices that keep them understandable and reliable.
+          A quick role-fit summary for backend, full-stack, platform, integration, and applied-AI
+          teams—grounded in work I have already delivered.
         </p>
       </div>
     </header>
 
-    <div class="capability-grid">
+    <div class="capability-list">
+      <div class="capability-list__labels" aria-hidden="true">
+        <span>Area of contribution</span>
+        <span>Evidence</span>
+        <span>Working toolkit</span>
+      </div>
       {capabilities.map((capability, index) => (
-        <article class="capability-card">
-          <span>0{index + 1}</span>
-          <h3>{capability.title}</h3>
-          <p>{capability.description}</p>
-          <ul>
+        <article class="capability-row">
+          <div class="capability-row__focus">
+            <span>0{index + 1}</span>
+            <div>
+              <h3>{capability.title}</h3>
+              <p>{capability.description}</p>
+            </div>
+          </div>
+          <p class="capability-row__evidence">
+            <span>Evidence</span>
+            {capability.evidence}
+          </p>
+          <ul aria-label={`${capability.title} technologies`}>
             {capability.technologies.map((technology) => (
               <li>{technology}</li>
             ))}
           </ul>
         </article>
       ))}
+    </div>
+
+    <div class="engineering-practices">
+      <div>
+        <p class="section-label">How I ship</p>
+        <h3>Production-minded by default</h3>
+      </div>
+      <ul>
+        {engineeringPractices.map((practice) => (
+          <li>{practice}</li>
+        ))}
+      </ul>
     </div>
   </div>
 </section>
