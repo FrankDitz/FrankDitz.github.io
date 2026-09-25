@@ -965,9 +965,16 @@ a {
 
 .work-example > span,
 .capability-card > span {
-  color: var(--color-accent);
   font-family: var(--font-mono);
   font-size: 0.7rem;
+}
+
+.work-example > span {
+  color: var(--color-cobalt);
+}
+
+.capability-card > span {
+  color: var(--color-accent);
 }
 
 .work-example > div > p:first-child {
@@ -1528,6 +1535,70 @@ a {
   color: var(--color-cobalt);
   font-weight: 700;
   text-decoration: none;
+}
+
+.not-found {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+.not-found__identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4.8rem;
+  border-bottom: 1px solid var(--color-line);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.not-found__identity > span:first-child {
+  font-size: 2rem;
+  letter-spacing: -0.13em;
+}
+
+.not-found__identity > span:last-child {
+  display: grid;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.not-found__identity small {
+  margin-top: 0.1rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.not-found__content {
+  align-self: center;
+  max-width: 54rem;
+  padding-block: 5rem;
+}
+
+.not-found h1 {
+  margin: 0;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.not-found__content > p:not(.section-label) {
+  max-width: 42rem;
+  margin: 1.6rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.not-found .button {
+  width: fit-content;
+  margin-top: 2rem;
+  padding-inline: 1.25rem;
 }
 
 :focus-visible {
