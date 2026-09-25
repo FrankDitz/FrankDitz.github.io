@@ -26,3 +26,7 @@ pnpm-debug.log*
 
 # local document rendering and visual QA
 tmp/
+
+# browser test artifacts
+test-results/
+playwright-report/
