@@ -85,7 +85,7 @@ export const resumes = [
   {
     title: 'Software Engineering',
     description:
-      'The recommended general résumé for backend, full-stack, platform, and integration roles.',
+      'The recommended general resume for backend, full-stack, platform, and integration roles.',
     href: '/resumes/frank-ditz-software-engineer.pdf',
     primary: true,
   },

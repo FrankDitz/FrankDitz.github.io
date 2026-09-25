@@ -814,17 +814,67 @@ a {
   border-top: 1px solid var(--color-line);
 }
 
+.experience-proof {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: clamp(2.5rem, 4.5vw, 4.5rem) 0 0;
+  border-top: 1px solid var(--color-ink);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.experience-proof > div {
+  min-width: 0;
+  border-left: 1px solid var(--color-line);
+  padding: 1.5rem clamp(1rem, 2vw, 1.8rem);
+}
+
+.experience-proof > div:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.experience-proof dt {
+  color: var(--color-cobalt);
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  font-weight: 750;
+  line-height: 1.15;
+}
+
+.experience-proof dd {
+  margin: 0.45rem 0 0;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.experience-history {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.7fr) minmax(0, 1.6fr);
+  gap: clamp(2rem, 6vw, 7rem);
+  margin-top: clamp(3rem, 5vw, 5rem);
+}
+
+.experience-history__heading h3 {
+  max-width: 12rem;
+  margin: 0.65rem 0 0;
+  font-size: 1.75rem;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
 .experience-list {
-  margin-top: clamp(3.5rem, 6vw, 6rem);
   border-top: 1px solid var(--color-ink);
 }
 
 .experience-item {
   display: grid;
-  grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 1.6fr);
-  gap: clamp(2rem, 6vw, 7rem);
+  grid-template-columns: minmax(9rem, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
   border-bottom: 1px solid var(--color-line);
-  padding: 2.4rem 0;
+  padding: 2rem 0;
 }
 
 .experience-item__identity h3,
@@ -911,34 +961,42 @@ a {
 }
 
 .professional-work {
-  display: grid;
-  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.5fr);
-  gap: clamp(2.5rem, 6vw, 7rem);
   margin-top: clamp(4rem, 7vw, 7rem);
+  border-top: 1px solid var(--color-ink);
+  padding-top: 2rem;
 }
 
 .professional-work__intro h3 {
-  max-width: 20rem;
+  max-width: none;
   font-size: 2rem;
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
 .professional-work__intro > p:last-child {
-  max-width: 24rem;
+  max-width: 47rem;
   margin: 1.15rem 0 0;
 }
 
 .professional-work__list {
-  border-top: 1px solid var(--color-ink);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
 }
 
 .work-example {
   display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  gap: 1.25rem;
-  border-bottom: 1px solid var(--color-line);
-  padding: 1.8rem 0;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.8rem;
+  border-left: 1px solid var(--color-line);
+  padding: 1.7rem clamp(1rem, 2vw, 1.7rem) 2rem;
+}
+
+.work-example:first-child {
+  border-left: 0;
+  padding-left: 0;
 }
 
 .work-example > span,
@@ -1528,10 +1586,38 @@ a {
 
 @media (max-width: 70rem) {
   .content-section__heading,
-  .experience-item,
-  .professional-work {
+  .experience-history {
     grid-template-columns: minmax(10rem, 0.55fr) minmax(0, 1.45fr);
     gap: 2.5rem;
+  }
+
+  .experience-proof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-proof > div:nth-child(3) {
+    border-top: 1px solid var(--color-line);
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .experience-proof > div:nth-child(4) {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .professional-work__list {
+    grid-template-columns: 1fr;
+  }
+
+  .work-example,
+  .work-example:first-child {
+    border-top: 1px solid var(--color-line);
+    border-left: 0;
+    padding: 1.6rem 0;
+  }
+
+  .work-example:first-child {
+    border-top: 0;
   }
 
   .capability-grid,
@@ -1564,11 +1650,27 @@ a {
 
 @media (max-width: 48rem) {
   .content-section__heading,
-  .experience-item,
-  .professional-work,
+  .experience-history,
   .contact-section__inner {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .experience-proof {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .experience-proof > div {
+    padding: 1.15rem 0.8rem;
+  }
+
+  .experience-proof > div:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
   }
 
   .content-section__heading h2 {
