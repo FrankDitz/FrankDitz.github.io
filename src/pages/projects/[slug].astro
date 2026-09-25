@@ -1,0 +1,30 @@
+---
+import ProjectDetail from '../../components/ProjectDetail.astro';
+import { projects, projectTemplate, type PortfolioProject } from '../../data/projects';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const visibleProjects = import.meta.env.DEV
+    ? [...projects.filter((project) => project.published), projectTemplate]
+    : projects.filter((project) => project.published);
+
+  return visibleProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project, isTemplate: project.slug === projectTemplate.slug },
+  }));
+}
+
+interface Props {
+  project: PortfolioProject;
+  isTemplate: boolean;
+}
+
+const { project, isTemplate } = Astro.props;
+---
+
+<BaseLayout
+  title={`${project.title} — Frank Ditz`}
+  description={`${project.summary} Read the engineering case study, architecture, tradeoffs, testing, and results.`}
+>
+  <ProjectDetail project={project} isTemplate={isTemplate} />
+</BaseLayout>

@@ -1,0 +1,209 @@
+---
+import type { PortfolioProject } from '../data/projects';
+
+interface Props {
+  project: PortfolioProject;
+  isTemplate?: boolean;
+}
+
+const { project, isTemplate = false } = Astro.props;
+---
+
+<header class="case-study-header page-shell">
+  <a class="case-study-header__identity" href="/" aria-label="Return to Frank Ditz portfolio">
+    <span aria-hidden="true">FD</span>
+    <span>
+      Frank Ditz <small>Software Engineer</small>
+    </span>
+  </a>
+  <a class="case-study-header__back" href="/#projects">
+    ← All projects
+  </a>
+</header>
+
+<main class="case-study">
+  {isTemplate && (
+    <aside class="template-notice page-shell">
+      Development preview · This route demonstrates the reusable project layout and is excluded from
+      production.
+    </aside>
+  )}
+
+  <section class="case-study-hero page-shell" aria-labelledby="project-title">
+    <div class="case-study-hero__intro">
+      <p class="section-label">
+        {project.category} · {project.status}
+      </p>
+      <h1 id="project-title">{project.title}</h1>
+      <p class="case-study-hero__summary">{project.summary}</p>
+      <p class="case-study-hero__outcome">
+        <strong>Outcome</strong>
+        {project.outcome}
+      </p>
+      <div class="case-study-hero__links" aria-label="Project links">
+        {project.links.map((link) => (
+          <a href={link.href} target={link.href === '#' ? undefined : '_blank'} rel="noreferrer">
+            {link.label} <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <dl class="case-study-facts">
+      <div>
+        <dt>Role</dt>
+        <dd>{project.role}</dd>
+      </div>
+      <div>
+        <dt>Timeline</dt>
+        <dd>{project.timeline}</dd>
+      </div>
+      <div>
+        <dt>Primary user</dt>
+        <dd>{project.audience}</dd>
+      </div>
+      <div>
+        <dt>Stack</dt>
+        <dd>{project.technologies.join(' · ')}</dd>
+      </div>
+    </dl>
+  </section>
+
+  {project.media && (
+    <figure class="case-study-media page-shell">
+      <img src={project.media.src} alt={project.media.alt} />
+      <figcaption>{project.media.caption}</figcaption>
+    </figure>
+  )}
+
+  <div class="case-study-body page-shell">
+    <aside class="case-study-nav" aria-label="Case study sections">
+      <p>Case study</p>
+      <a href="#overview">01 · Overview</a>
+      <a href="#build">02 · What I built</a>
+      <a href="#architecture">03 · Architecture</a>
+      <a href="#decisions">04 · Decisions</a>
+      <a href="#quality">05 · Quality</a>
+      <a href="#reflection">06 · Reflection</a>
+    </aside>
+
+    <div class="case-study-content">
+      <section id="overview" class="case-study-section">
+        <p class="section-label">01 / Overview</p>
+        <h2>The problem and the response</h2>
+        <div class="case-study-split">
+          <div>
+            <h3>Problem</h3>
+            <p>{project.problem}</p>
+          </div>
+          <div>
+            <h3>Solution</h3>
+            <p>{project.solution}</p>
+          </div>
+        </div>
+        <div class="case-study-evidence">
+          <h3>Results</h3>
+          <ul>
+            {project.results.map((result) => (
+              <li>{result}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section id="build" class="case-study-section">
+        <p class="section-label">02 / Product scope</p>
+        <h2>What I built</h2>
+        <div class="case-study-split">
+          <div>
+            <h3>Core capabilities</h3>
+            <ul>
+              {project.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Constraints</h3>
+            <ul>
+              {project.constraints.map((constraint) => (
+                <li>{constraint}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="case-study-section">
+        <p class="section-label">03 / System design</p>
+        <h2>Architecture</h2>
+        <div class="architecture-grid">
+          {project.architecture.map((item, index) => (
+            <article>
+              <span>0{index + 1}</span>
+              <h3>{item.name}</h3>
+              <p>{item.responsibility}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="decisions" class="case-study-section">
+        <p class="section-label">04 / Engineering judgment</p>
+        <h2>Key decisions and tradeoffs</h2>
+        <div class="decision-list">
+          {project.decisions.map((item, index) => (
+            <article>
+              <span>0{index + 1}</span>
+              <div>
+                <h3>{item.decision}</h3>
+                <p>{item.reasoning}</p>
+                <p>
+                  <strong>Tradeoff:</strong> {item.tradeoff}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="quality" class="case-study-section">
+        <p class="section-label">05 / Confidence</p>
+        <h2>Testing, reliability, and delivery</h2>
+        <ul class="quality-list">
+          {project.quality.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="reflection" class="case-study-section">
+        <p class="section-label">06 / Reflection</p>
+        <h2>What I learned and what comes next</h2>
+        <div class="case-study-split">
+          <div>
+            <h3>Lessons</h3>
+            <ul>
+              {project.lessons.map((lesson) => (
+                <li>{lesson}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Next steps</h3>
+            <ul>
+              {project.nextSteps.map((step) => (
+                <li>{step}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="case-study-footer page-shell">
+    <p>Frank Ditz · Software Engineer</p>
+    <a href="/#projects">Back to portfolio →</a>
+  </footer>
+</main>

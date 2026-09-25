@@ -58,25 +58,25 @@ export const capabilities = [
   {
     title: 'Backend engineering',
     description:
-      'APIs, SDKs, service integrations, authentication, and maintainable application logic.',
+      'Production APIs, typed SDKs, authentication flows, and integrations with explicit failure handling.',
     technologies: ['Python', 'Node.js', 'FastAPI', 'REST APIs', 'Pydantic'],
   },
   {
     title: 'Cloud & data systems',
     description:
-      'Reliable workflows that connect cloud services, databases, and external platforms.',
+      'Recoverable workflows connecting AWS services, databases, Snowflake, and external platforms.',
     technologies: ['AWS', 'PostgreSQL', 'Snowflake', 'Docker', 'Terraform'],
   },
   {
     title: 'Applied AI',
     description:
-      'Grounded LLM applications with controlled tools, structured outputs, and secure data access.',
+      'LLM applications with controlled tools, governed metadata, structured outputs, and secure access.',
     technologies: ['OpenAI API', 'Tool calling', 'Agent workflows', 'Metadata retrieval'],
   },
   {
     title: 'Quality & delivery',
     description:
-      'Observable, testable systems built through practical discovery and iterative delivery.',
+      'Automated checks, structured logging, test environments, and production-focused troubleshooting.',
     technologies: ['pytest', 'MyPy', 'Ruff', 'CI/CD', 'Structured logging'],
   },
 ];
@@ -103,27 +103,4 @@ export const resumes = [
     href: '/resumes/frank-ditz-applied-ai.pdf',
     primary: false,
   },
-];
-
-export const projectTracks = [
-  [
-    '01',
-    'Full-stack products',
-    'User-facing applications backed by thoughtful APIs and durable data models.',
-  ],
-  [
-    '02',
-    'Backend & integrations',
-    'APIs, SDKs, automation, and reliable workflows between systems.',
-  ],
-  [
-    '03',
-    'Applied AI',
-    'Useful AI products with controlled tools, evaluation, and transparent system behavior.',
-  ],
-  [
-    '04',
-    'Developer tools',
-    'Utilities that improve local workflows, observability, and engineering productivity.',
-  ],
 ];
