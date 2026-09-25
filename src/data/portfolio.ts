@@ -56,29 +56,35 @@ export const professionalWork = [
 
 export const capabilities = [
   {
-    title: 'Backend engineering',
+    title: 'Backend & API engineering',
     description:
-      'Production APIs, typed SDKs, authentication flows, and integrations with explicit failure handling.',
-    technologies: ['Python', 'Node.js', 'FastAPI', 'REST APIs', 'Pydantic'],
+      'I can own service and integration work from API design through validation, authentication, testing, and failure handling.',
+    evidence: 'Built a typed Python SDK spanning 100+ enterprise REST endpoints.',
+    technologies: ['Python', 'Node.js', 'FastAPI', 'REST', 'PostgreSQL'],
   },
   {
-    title: 'Cloud & data systems',
+    title: 'Cloud, data & platform work',
     description:
-      'Recoverable workflows connecting AWS services, databases, Snowflake, and external platforms.',
-    technologies: ['AWS', 'PostgreSQL', 'Snowflake', 'Docker', 'Terraform'],
+      'I build recoverable workflows across cloud services, databases, and third-party systems with operability in mind.',
+    evidence:
+      'Delivered a stateful AWS-to-Snowflake pipeline with checkpoint recovery and audit logging.',
+    technologies: ['AWS', 'Snowflake', 'Docker', 'Terraform', 'SQL'],
   },
   {
-    title: 'Applied AI',
+    title: 'Applied AI & product integration',
     description:
-      'LLM applications with controlled tools, governed metadata, structured outputs, and secure access.',
-    technologies: ['OpenAI API', 'Tool calling', 'Agent workflows', 'Metadata retrieval'],
+      'I connect AI capabilities to real products and governed data instead of treating the model as an isolated demo.',
+    evidence:
+      'Built a secured data assistant using controlled tools, metadata, RBAC, and query safeguards.',
+    technologies: ['OpenAI API', 'Tool calling', 'Python', 'RBAC', 'Metadata'],
   },
-  {
-    title: 'Quality & delivery',
-    description:
-      'Automated checks, structured logging, test environments, and production-focused troubleshooting.',
-    technologies: ['pytest', 'MyPy', 'Ruff', 'CI/CD', 'Structured logging'],
-  },
+];
+
+export const engineeringPractices = [
+  'Automated testing & type safety',
+  'Structured logging & observability',
+  'Secure authentication & access control',
+  'Customer requirements translated into working software',
 ];
 
 export const resumes = [
