@@ -3,6 +3,11 @@ import ProjectCard from './ProjectCard.astro';
 import { projects } from '../data/projects';
 
 const publishedProjects = projects.filter((project) => project.published);
+const featuredProjects = publishedProjects
+  .filter((project) => project.featured)
+  .concat(publishedProjects.filter((project) => !project.featured))
+  .slice(0, 3);
+const emptyProjectSlots = Array.from({ length: 3 - featuredProjects.length });
 ---
 
 <section class="portfolio-overview" aria-label="About and independent projects">
@@ -38,42 +43,45 @@ const publishedProjects = projects.filter((project) => project.published);
           <p class="section-label">02 / Independent projects</p>
           <h2 id="projects-title">Public work, shown with evidence</h2>
           <p>
-            Each completed project will include source code, a working demo, architecture,
-            engineering decisions, testing, and an honest retrospective.
+            Three focused case studies with a working demo, public source code, and the engineering
+            decisions behind each build.
           </p>
         </div>
-        <a class="featured-panel__library-link" href="/projects/">
-          View project library <span>→</span>
-        </a>
       </div>
 
-      {publishedProjects.length > 0 ? (
-        <div class="project-card-grid">
-          {publishedProjects.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-        </div>
-      ) : (
-        <div class="project-empty-state">
-          <div>
-            <span>In development</span>
-            <h3>The first independent case studies are being built now.</h3>
-          </div>
-          <p>
-            I’m keeping unfinished work off the portfolio rather than presenting placeholders as
-            proof. Until those repositories and demos are ready, my professional engineering work
-            below is the best evidence of what I’ve delivered.
-          </p>
-          <a href="#professional-work">
-            Review professional work <span>↓</span>
-          </a>
-          {import.meta.env.DEV && (
-            <a class="project-empty-state__preview" href="/projects/project-template/">
-              Preview project-page template <span>→</span>
-            </a>
-          )}
-        </div>
-      )}
+      <div class="project-card-grid">
+        {featuredProjects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+        {emptyProjectSlots.map((_, index) => {
+          const slotNumber = featuredProjects.length + index + 1;
+
+          return (
+            <article class="project-card project-card--placeholder">
+              <div class="project-card__meta">
+                <span>0{slotNumber}</span>
+                <span>In development</span>
+              </div>
+              <h3>Featured project {slotNumber}</h3>
+              <p>
+                Reserved for a completed public build with a working application, reviewable source
+                code, and a concise engineering case study.
+              </p>
+              <p class="project-card__availability">
+                Project details will be added when the build is ready.
+              </p>
+              <div
+                class="project-card__actions"
+                aria-label={`Featured project ${slotNumber} links`}
+              >
+                <span aria-disabled="true">Live demo</span>
+                <span aria-disabled="true">GitHub</span>
+                <span aria-disabled="true">Details</span>
+              </div>
+            </article>
+          );
+        })}
+      </div>
     </article>
   </div>
 </section>

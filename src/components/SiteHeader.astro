@@ -1,6 +1,5 @@
 ---
 const isHomePage = Astro.url.pathname === '/';
-const isProjectsPage = Astro.url.pathname.startsWith('/projects');
 const homePrefix = isHomePage ? '' : '/';
 ---
 
@@ -25,10 +24,7 @@ const homePrefix = isHomePage ? '' : '/';
     <a class="site-nav__link" href={`${homePrefix}#about`}>
       About
     </a>
-    <a
-      class:list={['site-nav__link', { 'site-nav__link--active': isProjectsPage }]}
-      href="/projects/"
-    >
+    <a class="site-nav__link" href={`${homePrefix}#projects`}>
       Projects
     </a>
     <a class="site-nav__link" href={`${homePrefix}#experience`}>

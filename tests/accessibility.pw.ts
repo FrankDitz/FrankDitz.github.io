@@ -3,7 +3,6 @@ import { expect, test } from '@playwright/test';
 
 const pages = [
   { name: 'portfolio home', path: '/' },
-  { name: 'project library', path: '/projects/' },
   { name: 'not found page', path: '/404.html' },
 ];
 
