@@ -53,6 +53,8 @@ test('portfolio remains readable across responsive layout transitions', async ({
       const portrait = document.querySelector('.hero__portrait')?.getBoundingClientRect();
       const hero = document.querySelector('.hero')?.getBoundingClientRect();
       const heroVisual = document.querySelector('.hero__visual')?.getBoundingClientRect();
+      const heroComposition = document.querySelector('.hero__composition')?.getBoundingClientRect();
+      const heroActions = document.querySelector('.hero__actions')?.getBoundingClientRect();
       const projectPreview = document.querySelector('.project-preview')?.getBoundingClientRect();
 
       return {
@@ -97,6 +99,12 @@ test('portfolio remains readable across responsive layout transitions', async ({
           window.innerWidth > 1088 ||
           (Boolean(portrait && projectPreview) &&
             Math.abs(portrait!.bottom - projectPreview!.bottom) <= 1),
+        stackedCompositionMeetsHeroBoundary:
+          window.innerWidth > 1088 ||
+          (Boolean(heroComposition && hero) &&
+            Math.abs(hero!.bottom - heroComposition!.bottom) <= 1),
+        actionsHaveBoundaryClearance:
+          Boolean(heroActions && hero) && hero!.bottom - heroActions!.bottom >= 12,
       };
     });
 
@@ -142,6 +150,18 @@ test('portfolio remains readable across responsive layout transitions', async ({
       .soft(
         layout.responsiveVisualsShareBaseline,
         `${width}px viewport gives the hero visuals different baselines`,
+      )
+      .toBe(true);
+    expect
+      .soft(
+        layout.stackedCompositionMeetsHeroBoundary,
+        `${width}px viewport lets the stacked composition float above the hero boundary`,
+      )
+      .toBe(true);
+    expect
+      .soft(
+        layout.actionsHaveBoundaryClearance,
+        `${width}px viewport places the hero actions against the section boundary`,
       )
       .toBe(true);
   }
