@@ -1757,7 +1757,35 @@ a {
   }
 }
 
-@media (max-width: 92rem) {
+@media (min-width: 68.0625rem) and (max-width: 92rem) {
+  .hero {
+    grid-template-columns: clamp(22rem, 31vw, 25rem) minmax(0, 1fr);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 3.45vw, 2.8rem);
+  }
+
+  .hero h1 strong {
+    font-size: clamp(3.25rem, 4.8vw, 4rem);
+  }
+
+  .hero__tagline,
+  .project-preview__stack {
+    display: none;
+  }
+
+  .project-preview {
+    width: min(80%, 45rem);
+  }
+
+  .hero__portrait {
+    right: 0.5rem;
+    height: clamp(18rem, 22vw, 23rem);
+  }
+}
+
+@media (max-width: 68rem) {
   .hero {
     display: flex;
     flex-direction: column;

@@ -89,7 +89,7 @@ test('portfolio remains readable across responsive layout transitions', async ({
             portrait!.left < projectPreview!.right &&
             portrait!.right > projectPreview!.left),
         responsiveVisualsShareBaseline:
-          window.innerWidth > 1472 ||
+          window.innerWidth > 1088 ||
           (Boolean(portrait && projectPreview) &&
             Math.abs(portrait!.bottom - projectPreview!.bottom) <= 1),
       };
