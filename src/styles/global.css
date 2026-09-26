@@ -1808,7 +1808,7 @@ a {
   .hero__composition {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(13rem, 24vw, 16rem);
+    grid-template-columns: minmax(0, 1fr) clamp(15rem, 28vw, 18rem);
     align-items: end;
     width: min(100%, 64rem);
     margin-inline: auto;
@@ -1858,7 +1858,7 @@ a {
 
 @media (max-width: 52rem) {
   .hero__composition {
-    grid-template-columns: minmax(0, 1fr) clamp(9rem, 30vw, 13rem);
+    grid-template-columns: minmax(0, 1fr) clamp(10rem, 28vw, 15rem);
   }
 
   .project-preview {
