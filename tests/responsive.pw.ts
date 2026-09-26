@@ -88,6 +88,11 @@ test('portfolio remains readable across responsive layout transitions', async ({
           (Boolean(portrait && projectPreview) &&
             portrait!.left < projectPreview!.right &&
             portrait!.right > projectPreview!.left),
+        responsivePortraitOverlapIsProportionate:
+          window.innerWidth > 1088 ||
+          (Boolean(portrait && projectPreview) &&
+            Math.max(0, projectPreview!.right - portrait!.left) / portrait!.width <=
+              (window.innerWidth <= 430 ? 0.65 : 0.45)),
         responsiveVisualsShareBaseline:
           window.innerWidth > 1088 ||
           (Boolean(portrait && projectPreview) &&
@@ -125,6 +130,12 @@ test('portfolio remains readable across responsive layout transitions', async ({
       .soft(
         layout.responsiveVisualsOverlap,
         `${width}px viewport visually detaches the portrait from the preview`,
+      )
+      .toBe(true);
+    expect
+      .soft(
+        layout.responsivePortraitOverlapIsProportionate,
+        `${width}px viewport lets the portrait cover too much of the preview`,
       )
       .toBe(true);
     expect

@@ -1808,7 +1808,7 @@ a {
   .hero__composition {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(15rem, 29vw, 19rem);
+    grid-template-columns: minmax(0, 1fr) clamp(13rem, 24vw, 16rem);
     align-items: end;
     width: min(100%, 64rem);
     margin-inline: auto;
@@ -1858,12 +1858,12 @@ a {
 
 @media (max-width: 52rem) {
   .hero__composition {
-    grid-template-columns: minmax(0, 1fr) clamp(9rem, 38vw, 17rem);
+    grid-template-columns: minmax(0, 1fr) clamp(9rem, 30vw, 13rem);
   }
 
   .project-preview {
-    justify-self: center;
-    width: min(92%, 42rem);
+    justify-self: start;
+    width: min(80%, 42rem);
     transform: none;
   }
 }
