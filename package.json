@@ -36,11 +36,11 @@
     "eslint": "10.11.0",
     "eslint-plugin-astro": "3.2.1",
     "linkinator": "^8.1.0",
-    "prettier": "3.9.8",
-    "prettier-plugin-astro": "1.0.1",
-    "sharp": "0.35.4",
+    "prettier": "3.9.9",
+    "prettier-plugin-astro": "1.1.0",
+    "sharp": "0.35.5",
     "start-server-and-test": "^3.0.12",
-    "typescript": "5.9.3",
+    "typescript": "7.0.2",
     "typescript-eslint": "8.70.1"
   }
 }
