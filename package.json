@@ -22,7 +22,7 @@
     "verify": "pnpm format:check && pnpm lint && pnpm check && pnpm build && pnpm test:links && pnpm test:browser"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/sitemap": "^3.7.5",
     "astro": "^7.3.4"
   },
   "allowScripts": {
